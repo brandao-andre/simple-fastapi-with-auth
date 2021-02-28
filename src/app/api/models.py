@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, EmailStr
 
 
 class NoteSchema(BaseModel):
@@ -8,3 +8,15 @@ class NoteSchema(BaseModel):
 
 class NoteDB(NoteSchema):
     id: int
+
+
+class UserSchema(BaseModel):
+    fullname: str = Field(...)
+    email: EmailStr = Field(...)
+    password: str = Field(...)
+
+
+class UserLoginSchema(BaseModel):
+    email: EmailStr = Field(...)
+    password: str = Field(...)
+
